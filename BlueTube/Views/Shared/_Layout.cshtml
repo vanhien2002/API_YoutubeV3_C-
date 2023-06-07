@@ -1,0 +1,79 @@
+﻿@{ 
+    BlueTube.Models.Language lang = ViewBag.language;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="xem video youtube">
+    <meta name="robots" content="" />
+    <meta name="description" content="Xem video youtube không chứa quảng cáo. Không cần tải phần mềm." />
+    <title>@ViewBag.Title</title>
+
+
+    <link rel="stylesheet" href="@BlueTube.Models.MemoryCacheHelper.CacheFile("/Content/Site.css")" />
+    <link rel="stylesheet" href="@BlueTube.Models.MemoryCacheHelper.CacheFile("/Content/_Navgation.css")" />
+    <link rel="stylesheet" href="@BlueTube.Models.MemoryCacheHelper.CacheFile("/Content/_Contact.css")" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Fontawesome/css")
+</head>
+<body>
+    <div class="container-fluid main_header">
+        <div class="row header_Stick">
+            <div class="col-lg-4 col-md-4 col-sm-4 main_header_logo_Nav">
+                <label for="nav_check_input" class="main_header--navmenu">
+                    <i class="fa-solid fa-bars"></i>
+                </label>
+                <input class="nav_input_check" hidden id="nav_check_input" type="checkbox" />
+                <label for="nav_check_input" class="nav_overlay"></label>
+                <label for="checkbox_search" class="check_search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </label>
+                @RenderPage("~/Views/Shared/_Navigation.cshtml")
+                <div class="main_header_logo">
+                    <!--logo-->
+                    <a href="/Video/Home">
+                        <img src="~/Img/logo.png" />
+                        <p class="main_header_logo--title">BlueTube</p>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <input type="checkbox" hidden id="checkbox_search" class="check_Search_form" />
+                <form class="main_header_search" action="/Video/ShowVideo" method="get">
+                    <!--Search-->
+                    <input placeholder="@lang.search" name="f" id="Keysearch" class="main_header_search--inp" />
+                    <button class="main_header_search--btnSearch" onclick="IsEmpty()"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
+            <div class="dropdown col-lg-2 col-md-2 col-sm-2">
+                <button class="dropbtn">@lang.language <i class="fa-solid fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    @Html.ActionLink("ViewNames", "Index", "Video", new {l="vi"},null)
+                    @Html.ActionLink("English", "Index", "Video", new { l = "en" },null)
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid body-content">
+        @RenderBody()
+    </div>
+    <div class="container-fluid main_footer">
+        <div class="footer_contact">
+            <a style="color: #fff;" href="/Contact/Index">@lang.Contact</a>
+        </div>
+        <div class="footer_contact">
+            <a style="color: #fff;" href="/Contact/AboutUS">@lang.Introduce</a>
+        </div>
+        <div class="footer_coopyright">
+            <i class="fa-sharp fa-solid fa-copyright icon_coppyright"></i>
+            <p class="icon_coppyright" style="margin-right: 1rem;">2023</p><a class="icon_coppyright" style="color: #fff; cursor: pointer;" href="/Video/Home">BlueTube</a>
+        </div>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

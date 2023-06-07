@@ -1,0 +1,55 @@
+﻿@using BlueTube.Models
+@{
+    ViewBag.Title = "_Navigation";
+    Language lang = (Language)MemoryCacheHelper.GetValue("en");
+}
+<div class="nav_PC">
+    <!--Nav main-->
+    <label for="nav_check_input" class="nav_PC_close">
+        <i class="fa-solid fa-xmark"></i>
+    </label>
+    <ul class="nav_main">
+        <li class="nav_main_item">
+            <a href="/Video/Index">
+                <i class="fa-solid fa-house"></i>
+                <h2>@lang.Home</h2>
+            </a>
+        </li>
+        <li class="nav_main_item">
+            <a href="/Video/Index?keyword=@lang.Trending">
+                <i class="fa-brands fa-gripfire"></i>
+                <h2>@lang.Trending</h2>
+            </a>
+        </li>
+        <li class="nav_main_item">
+            <a href="/Video/Index?keyword=@lang.Music">
+                <i class="fa-solid fa-music"></i>
+                <h2>@lang.Music</h2>
+            </a>
+        </li>
+        <li class="nav_main_item">
+            <a href="/Video/Index?keyword=@lang.Film">
+                <i class="fa-brands fa-youtube"></i>
+                <h2>@lang.Film</h2>
+            </a>
+        </li>
+        <li class="nav_main_item">
+            <a href="/Video/Index?keyword=@lang.Film_And_Animation">
+                <i class="fa-solid fa-tv"></i>
+                <h2>@lang.Film_And_Animation</h2>
+            </a>
+        </li>
+        <li class="nav_main_item">
+            <a href="/Video/Index?keyword=@lang.Game">
+                <i class="fa-solid fa-gamepad"></i>
+                <h2>@lang.Game</h2>
+            </a>
+        </li>
+        <li class="nav_main_item">
+            <a href="/Video/Index?keyword=@lang.Football">
+                <i class="fa-solid fa-baseball"></i>
+                <h2>@lang.Football</h2>
+            </a>
+        </li>
+    </ul>
+</div>

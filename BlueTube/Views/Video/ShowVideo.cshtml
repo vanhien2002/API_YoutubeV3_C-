@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "ShowVideo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row main_showVideo">
+    @{
+        foreach (var item in ViewBag.data)
+        {
+        <div class="col-lg-9 col-md-12 col-sm-12 song_item">
+            <div class="song_item--logo">
+                <a href="/Video/Watch?p=@item.id">
+                    <div class="thumbHigh">
+                        <img src="@item.thumbHigh" />                        
+                        <div class="song_item--duration">
+                            <p>@item.duration</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="song_item--title">
+                <a href="/Video/Watch?p=@item.id">@item.title</a>
+                <p>@item.channelTitle</p>
+                <p>@BlueTube.Models.Helper.ViewCount(int.Parse(item.viewCount.ToString())) View</p>
+            </div>
+        </div>
+            }
+        }
+</div>
+
+

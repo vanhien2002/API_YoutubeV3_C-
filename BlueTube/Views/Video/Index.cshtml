@@ -1,0 +1,43 @@
+﻿@using BlueTube.Models
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Language lang = ViewBag.language;
+    List<videoModel> listVideo = ViewBag.values;
+}
+<div class="container-fluid" style="padding: 0px; background-color: #fff;">
+    <div class="row title_page"><h1>Trending</h1></div>
+    <div class="row home_Page_SongList">
+        @{
+            foreach (var item in listVideo)
+            {
+                <div class="col-lg-3 col-md-4 col-sm-6 home_Page_SongList_item">
+                    <div class="card media_song">
+                        <div class="card-img media_song_img">
+                            <a href="/Video/Watch?p=@item.id.videoID">
+                                <div class="page_Home_thumbHigh">
+                                    <img src=@item.snippet.thumbnails.medium.url>
+                                    <div class="media_song_duration">
+                                        <p>3:30</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card-title media_song_title">
+                            <a href="/Video/Watch?p=@item.id.videoID">
+                                <h3>@item.snippet.title</h3>
+                            </a>
+                        </div>
+                        <div class="card-text media_song_text">
+                            @{
+                                //string temp = item.viewCount;
+                                <p>3tr</p>
+                            }
+                            <!-- <p> //BlueTube.Models.Helper.ViewCount(int.Parse(temp)) Lượt Xem</p> -->
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+</div>

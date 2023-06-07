@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "PlayVideo";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    string link = "https://www.youtube.com/embed/" + ViewBag.idVideo + "";
+    BlueTube.Models.videoModel.detailVideoModel detailVideo = ViewBag.valuesDetail;
+    List<BlueTube.Models.videoModel> listVideo = ViewBag.lstVideo;
+}
+
+<div class="row">
+    <div class="col-lg-8 col-md-6 col-sm-12 wraper_left">
+        <div class="warper">
+            <iframe style="border:none;" width="100%" height="100%" src=@link allowfullscreen allow='autoplay'></iframe>
+        </div>
+        <div class="pagePlayVideo_title">
+            <div><h3>@detailVideo.snippet.title</h3></div>
+        </div>
+        <div class="channel_info_page_Playvideo">
+            <div class="channel_info_page_Playvideo--img">
+                <img src="~/Img/logo.png" />
+            </div>
+            <div>
+                <h3>@detailVideo.channelTitle</h3>
+            </div>
+        </div>
+        <div>
+            <ul class="channel_review_page_Playvideo">
+                <li>
+                   12/2/2022
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6 col-sm-12">
+        @foreach (var item in listVideo)
+        {
+            <div class="main_revVideo">
+                <div class="col-lg-6 col-sm-5 col-4 col-xs-5 video_rv">
+                    <a href="/Video/Watch?p=@item.id.videoID">
+                        <div class="thumbHigh">
+                            <img class="video_rv--img" src="@item.snippet.thumbnails.medium.url" />
+                            <div class="media_song_duration">
+                                <p>3:00</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-lg-6 col-sm-7 col-8 col-xs-7 info_video">
+                    <a class="info_video--title" href="/Video/Watch?p=@item.id.videoID">
+                        <span><b>@item.snippet.title</b></span>
+                    </a>
+                    <div>
+                        <span>12tr</span> View
+                    </div>
+                </div>
+            </div>
+         }
+    </div>
+</div>
+
+
+

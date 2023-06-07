@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+    string keylanguage = Session["keylanguage"] as string;
+}
+@{ 
+    foreach (var item in ViewBag.data)
+    {
+        <h2>@ViewBag.language.title</h2>
+        <p>@item.snippet.title</p>
+    }
+}
+

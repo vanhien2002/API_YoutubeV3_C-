@@ -1,0 +1,34 @@
+[
+  {
+    "id": "vi",
+    "keyword": "Âm Nhạc",
+    "title": "Trending",
+    "search": "Tìm kiếm video",
+    "Home": "Trang Chủ",
+    "Trending": "Thịnh Hành",
+    "Music": "Âm Nhạc",
+    "Film_And_Animation": "Phim & Hoạt Hình",
+    "Film": "Phim Ảnh",
+    "Game": "Trò Chơi",
+    "Football": "Bóng Đá",
+    "Contact": "Liên Hệ",
+    "Introduce": "about us",
+    "language": "Ngôn ngữ"
+  },
+  {
+    "id": "en",
+    "keyword": "Music",
+    "title": "Featured video",
+    "search": "search video",
+    "Home": "Home",
+    "Trending": "Trending",
+    "Music": "Music",
+    "Film_And_Animation": "Film And Animation",
+    "Film": "Film",
+    "Game": "Game",
+    "Football": "Football",
+    "Contact": "Contact",
+    "Introduce": "about us",
+    "language": "Language"
+  }
+]
